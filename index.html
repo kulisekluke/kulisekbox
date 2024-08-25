@@ -6,83 +6,187 @@
     <title>Kulisekbox Modpack</title>
     <style>
         body {
-            font-family: Arial, sans-serif;
-            background-color: #1c1c1c;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background-color: #282c34;
             color: #ffffff;
             margin: 0;
             padding: 0;
+            overflow-x: hidden;
         }
 
         header {
-            background-color: #333333;
-            padding: 20px;
+            background-color: #20232a;
+            padding: 30px 0;
             text-align: center;
+            animation: slideIn 1s ease-out;
         }
 
         header h1 {
+            font-size: 3em;
+            color: #61dafb;
             margin: 0;
-            font-size: 2.5em;
-            color: #ffa500;
+            animation: fadeIn 2s ease-in;
         }
 
         nav {
-            margin: 20px;
+            margin: 20px 0;
             text-align: center;
         }
 
         nav a {
-            color: #ffa500;
+            color: #61dafb;
             text-decoration: none;
-            margin: 0 15px;
+            margin: 0 20px;
             font-size: 1.2em;
+            padding: 10px;
+            position: relative;
+            transition: color 0.3s ease-in-out;
+        }
+
+        nav a::after {
+            content: '';
+            display: block;
+            width: 0;
+            height: 2px;
+            background: #61dafb;
+            transition: width 0.3s;
+            position: absolute;
+            bottom: 0;
+            left: 50%;
+            transform: translateX(-50%);
         }
 
         nav a:hover {
-            text-decoration: underline;
+            color: #21a1f1;
+        }
+
+        nav a:hover::after {
+            width: 100%;
         }
 
         .container {
-            padding: 20px;
-            max-width: 1000px;
+            max-width: 1200px;
             margin: auto;
-            background-color: #2e2e2e;
-            border-radius: 10px;
+            padding: 20px;
         }
 
-        .content {
+        .section {
+            padding: 40px 0;
             text-align: center;
+            animation: fadeInUp 1.5s ease-out;
         }
 
-        .content h2 {
-            color: #ffa500;
+        .section h2 {
+            color: #61dafb;
+            margin-bottom: 20px;
+            font-size: 2.5em;
+            animation: zoomIn 1.5s ease-out;
         }
 
-        .content p {
-            font-size: 1.1em;
+        .section p {
+            font-size: 1.2em;
             line-height: 1.6em;
+            max-width: 800px;
+            margin: auto;
+            animation: fadeInUp 2s ease-out;
         }
 
-        .content button {
-            background-color: #ffa500;
+        .features-list {
+            list-style: none;
+            padding: 0;
+            margin: 40px 0;
+            display: flex;
+            justify-content: space-around;
+            flex-wrap: wrap;
+        }
+
+        .features-list li {
+            margin: 10px 20px;
+            background-color: #333;
+            padding: 15px 30px;
+            border-radius: 10px;
+            font-size: 1.2em;
+            min-width: 200px;
+            transition: transform 0.3s ease;
+        }
+
+        .features-list li:hover {
+            transform: scale(1.1);
+        }
+
+        .download-button {
+            background-color: #61dafb;
+            color: #20232a;
             border: none;
-            color: #1c1c1c;
-            padding: 10px 20px;
+            padding: 15px 30px;
             font-size: 1.2em;
             border-radius: 5px;
             cursor: pointer;
-            margin-top: 20px;
+            margin-top: 30px;
+            transition: background-color 0.3s ease;
         }
 
-        .content button:hover {
-            background-color: #ff7f00;
+        .download-button:hover {
+            background-color: #21a1f1;
+        }
+
+        .developers {
+            display: flex;
+            justify-content: center;
+            margin-top: 40px;
+        }
+
+        .developer {
+            margin: 0 30px;
+            text-align: center;
+            animation: fadeInUp 2s ease-out;
+        }
+
+        .developer img {
+            width: 100px;
+            height: 100px;
+            border-radius: 50%;
+            margin-bottom: 10px;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .developer img:hover {
+            transform: scale(1.1);
+            box-shadow: 0px 0px 15px #61dafb;
+        }
+
+        .developer h3 {
+            margin: 0;
+            font-size: 1.2em;
         }
 
         footer {
-            background-color: #333333;
+            background-color: #20232a;
             color: #ffffff;
             text-align: center;
-            padding: 10px;
+            padding: 20px;
             margin-top: 20px;
+            animation: fadeInUp 2s ease-out;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+
+        @keyframes fadeInUp {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        @keyframes slideIn {
+            from { transform: translateX(-100%); }
+            to { transform: translateX(0); }
+        }
+
+        @keyframes zoomIn {
+            from { transform: scale(0.8); opacity: 0; }
+            to { transform: scale(1); opacity: 1; }
         }
     </style>
 </head>
@@ -95,29 +199,49 @@
         <a href="#about">O Modpacku</a>
         <a href="#features">Funkce</a>
         <a href="#download">Stáhnout</a>
+        <a href="#developers">Vývojáři</a>
         <a href="#contact">Kontakt</a>
     </nav>
 
     <div class="container">
-        <div class="content">
-            <h2 id="about">O Kulisekboxu</h2>
+        <div class="section" id="about">
+            <h2>O Kulisekboxu</h2>
             <p>Kulisekbox je ultimátní modpack, který kombinuje nejlepší modifikace pro Minecraft, aby vám poskytl nezapomenutelný herní zážitek. Ať už jste stavitel, dobrodruh nebo technický nadšenec, Kulisekbox má něco pro každého.</p>
+        </div>
 
-            <h2 id="features">Funkce</h2>
-            <p>Objevte svět nekonečných možností s Kulisekboxem:</p>
-            <ul style="list-style: none; padding: 0;">
+        <div class="section" id="features">
+            <h2>Funkce</h2>
+            <ul class="features-list">
                 <li>✔️ Přes 100 modů dokonale integrovaných</li>
                 <li>✔️ Vylepšená generace světa</li>
                 <li>✔️ Pokročilá technologie a automatizace</li>
                 <li>✔️ Nové biomů a stvoření</li>
                 <li>✔️ Vlastní úkoly a výzvy</li>
             </ul>
+        </div>
 
-            <h2 id="download">Stáhnout</h2>
-            <button onclick="downloadModpack()">Stáhnout Kulisekbox</button>
+        <div class="section" id="download">
+            <h2>Stáhnout</h2>
+            <button class="download-button" onclick="downloadModpack()">Stáhnout Kulisekbox</button>
+        </div>
 
-            <h2 id="contact">Kontaktujte nás</h2>
-            <p>Pokud máte jakékoliv dotazy nebo připomínky, neváhejte nás <a href="mailto:support@kulisekbox.com" style="color: #ffa500;">kontaktovat e-mailem</a>.</p>
+        <div class="section" id="developers">
+            <h2>Vývojáři</h2>
+            <div class="developers">
+                <div class="developer">
+                    <img src="https://via.placeholder.com/100" alt="KulisekLuk">
+                    <h3>kulíšekluke</h3>
+                </div>
+                <div class="developer">
+                    <img src="https://via.placeholder.com/100" alt="Luki123CZ">
+                    <h3>luki_123CZ</h3>
+                </div>
+            </div>
+        </div>
+
+        <div class="section" id="contact">
+            <h2>Kontaktujte nás</h2>
+            <p>Pokud máte jakékoliv dotazy nebo připomínky, neváhejte nás <a href="mailto:support@kulisekbox.com" style="color: #61dafb;">kontaktovat e-mailem</a>.</p>
         </div>
     </div>
 
