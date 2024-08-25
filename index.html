@@ -114,7 +114,7 @@
             transform: scale(1.1);
         }
 
-        .download-button {
+        .download-button, .discord-button {
             background-color: #61dafb;
             color: #20232a;
             border: none;
@@ -124,9 +124,11 @@
             cursor: pointer;
             margin-top: 30px;
             transition: background-color 0.3s ease;
+            display: inline-block;
+            margin: 10px;
         }
 
-        .download-button:hover {
+        .download-button:hover, .discord-button:hover {
             background-color: #21a1f1;
         }
 
@@ -241,7 +243,7 @@
 
         <div class="section" id="contact">
             <h2>Kontaktujte nás</h2>
-            <p>Pokud máte jakékoliv dotazy nebo připomínky, neváhejte nás <a href="mailto:support@kulisekbox.com" style="color: #61dafb;">kontaktovat e-mailem</a>.</p>
+            <button class="discord-button" onclick="joinDiscord()">Připojte se na náš Discord</button>
         </div>
     </div>
 
@@ -253,6 +255,10 @@
         function downloadModpack() {
             alert('Děkujeme za stažení Kulisekboxu! Stahování začne brzy.');
             window.location.href = 'https://www.technicpack.net/modpack/kulisekbox.123456';
+        }
+
+        function joinDiscord() {
+            window.location.href = 'https://discord.gg/your-discord-link';
         }
     </script>
 </body>
